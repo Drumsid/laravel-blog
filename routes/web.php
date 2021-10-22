@@ -24,3 +24,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/getCategories', [TestController::class, 'getCategories']);
 Route::get('/getPosts', [TestController::class, 'getPosts']);
 Route::get('/getPostsTags', [TestController::class, 'getPostsTags']);
+Route::get('/getTagsPosts', [TestController::class, 'getTagsPosts']);

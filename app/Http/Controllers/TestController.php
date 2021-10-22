@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Tag;
 
 class TestController extends Controller
 {
@@ -26,6 +27,16 @@ class TestController extends Controller
 
     public function getPostsTags()
     {
-        return Post::with('tags')->get();
+        $post = Post::with('tags')->findOrFail(5);
+        return $post;
+
+        // $post = Post::findOrFail(7);
+        // return $post->tags;
+    }
+
+    public function getTagsPosts()
+    {
+        $tag = Tag::with('posts')->findOrFail(6);
+        return $tag;
     }
 }
