@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/getCategories', [TestController::class, 'getCategories']);
+Route::get('/getPosts', [TestController::class, 'getPosts']);
+Route::get('/getPostsTags', [TestController::class, 'getPostsTags']);
