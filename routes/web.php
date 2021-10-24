@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
 // use App\Http\Controllers\Blog\IndexController;
 use App\Http\Controllers\Admin\MainController;
+use App\Http\Controllers\Admin\Category\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,9 +28,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::namespace('App\Http\Controllers\Blog')->group(function() {
     Route::get('/blog', 'IndexController');
 });
-Route::namespace('Admin')->prefix('admin')
-        ->group(function() {
-    Route::get('/', [MainController::class, 'index']);
+
+Route::prefix('admin')->group(function() {
+    Route::get('/', [MainController::class, 'index'])->name('adminIndex');
+    Route::resource('category', CategoryController::class);
 });
 
 Route::get('/getCategories', [TestController::class, 'getCategories']);

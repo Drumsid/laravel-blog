@@ -23,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer('admin.includes.sidebar', function ($view) {
+            $view->with('categoryCount', \App\Models\Category::all()->count());
+        });
     }
 }
