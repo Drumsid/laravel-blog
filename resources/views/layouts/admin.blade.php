@@ -6,7 +6,7 @@
   <title>AdminLTE 3 | Dashboard</title>
 
   @include('admin.includes.mainstyles')
-  @if ($_SERVER['REQUEST_URI'] == '/admin/category')
+  @if ($_SERVER['REQUEST_URI'] == '/admin/category' || $_SERVER['REQUEST_URI'] == '/admin/tag' )
     <!-- DataTables -->
   <link rel="stylesheet" href="{{ asset('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
   <link rel="stylesheet" href="{{ asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
@@ -43,7 +43,7 @@
 
 @include('admin.includes.mainscripts')
 
-@if ($_SERVER['REQUEST_URI'] == '/admin/category')
+@if ($_SERVER['REQUEST_URI'] == '/admin/category' || $_SERVER['REQUEST_URI'] == '/admin/tag' )
 <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
 <script src="{{ asset('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
@@ -68,6 +68,17 @@
       "responsive": true,
     });
 });
+  $(document).ready(function() {
+    $('#tag-table').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+});
 </script>
 @endif
 
@@ -80,7 +91,11 @@ $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
         let link = this.href;
         if(link == location){
             $(this).addClass('active');
-            $(this).closest('.has-treeview').addClass('menu-open');
+            let navItem = $(this).closest('.nav-opening');
+            navItem.addClass('menu-is-opening');
+            navItem.addClass('menu-open');
+            navItem.children('.nav-isactive').addClass('active');
+            navItem.children('.nav-treeview').css('display', 'block');
         }
     });
 </script>

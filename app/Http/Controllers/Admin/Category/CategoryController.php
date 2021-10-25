@@ -88,12 +88,13 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($slug)
     {
-        $category = Category::find($id);
+        $category = Category::where('slug', $slug)->first();
         if ($category) {
             $category->delete();
+            return redirect()->route('category.index')->with('success', 'Категория удалена!');
         }
-        return redirect()->route('category.index')->with('success', 'Категория удалена!');
+        return back()->with('error', 'Категория не найдена!');
     }
 }

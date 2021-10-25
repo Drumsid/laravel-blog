@@ -5,6 +5,7 @@ use App\Http\Controllers\TestController;
 // use App\Http\Controllers\Blog\IndexController;
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\Category\CategoryController;
+use App\Http\Controllers\Admin\Tag\TagController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,7 @@ Route::namespace('App\Http\Controllers\Blog')->group(function() {
 Route::prefix('admin')->group(function() {
     Route::get('/', [MainController::class, 'index'])->name('adminIndex');
     Route::resource('category', CategoryController::class);
+    Route::resource('tag', TagController::class);
 });
 
 Route::get('/getCategories', [TestController::class, 'getCategories']);

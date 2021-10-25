@@ -22,8 +22,8 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-               <li class="nav-item">
-            <a href="#" class="nav-link">
+          <li class="nav-item nav-opening">
+            <a href="#" class="nav-link nav-isactive">
               <!-- <i class="nav-icon fas fa-tachometer-alt"></i> -->
               <i class="nav-icon far fa-list-alt"></i>
               <p>
@@ -47,16 +47,30 @@
               </li>
             </ul>
           </li>
-          <li class="nav-header">EXAMPLES</li>
-          <li class="nav-item">
-            <a href="pages/calendar.html" class="nav-link">
-              <i class="nav-icon far fa-calendar-alt"></i>
-              <p>
-                Calendar
-                <span class="badge badge-info right">2</span>
-              </p>
-            </a>
-          </li>
+          <li class="nav-item nav-opening">
+                  <a href="#" class="nav-link nav-isactive">
+                    <i class="nav-icon far fa-list-alt"></i>
+                    <p>
+                      Тэги
+                      <i class="right fas fa-angle-left"></i>
+                      <span class="badge badge-info right">{{ $tagCount }}</span>
+                    </p>
+                  </a>
+                  <ul class="nav nav-treeview" style="display: none;">
+                    <li class="nav-item">
+                      <a href="{{ route('tag.index') }}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Список тэгов</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="{{ route('tag.create') }}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Добавить тэг</p>
+                      </a>
+                    </li>
+                  </ul>
+              </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
