@@ -23,29 +23,29 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item nav-opening">
-            <a href="#" class="nav-link nav-isactive">
-              <!-- <i class="nav-icon fas fa-tachometer-alt"></i> -->
-              <i class="nav-icon far fa-list-alt"></i>
-              <p>
-                Категории
-                <i class="right fas fa-angle-left"></i>
-                <span class="badge badge-info right">{{ $categoryCount }}</span>
-              </p>
-            </a>
-            <ul class="nav nav-treeview" style="display: none;">
-              <li class="nav-item">
-                <a href="{{ route('category.index') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Список категорий</p>
+                <a href="#" class="nav-link nav-isactive">
+                  <!-- <i class="nav-icon fas fa-tachometer-alt"></i> -->
+                  <i class="nav-icon far fa-list-alt"></i>
+                  <p>
+                    Категории
+                    <i class="right fas fa-angle-left"></i>
+                    <span class="badge badge-info right">{{ $categoryCount }}</span>
+                  </p>
                 </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ route('category.create') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Добавить категорию</p>
-                </a>
-              </li>
-            </ul>
+                <ul class="nav nav-treeview" style="display: none;">
+                  <li class="nav-item">
+                    <a href="{{ route('category.index') }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Список категорий</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{ route('category.create') }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Добавить категорию</p>
+                    </a>
+                  </li>
+                </ul>
           </li>
           <li class="nav-item nav-opening">
                   <a href="#" class="nav-link nav-isactive">
@@ -70,7 +70,31 @@
                       </a>
                     </li>
                   </ul>
-              </li>
+          </li>
+          <li class="nav-item nav-opening">
+                  <a href="#" class="nav-link nav-isactive">
+                    <i class="nav-icon far fa-list-alt"></i>
+                    <p>
+                      Статьи
+                      <i class="right fas fa-angle-left"></i>
+                      <span class="badge badge-info right">{{ $postCount }}</span>
+                    </p>
+                  </a>
+                  <ul class="nav nav-treeview" style="display: none;">
+                    <li class="nav-item">
+                      <a href="{{ route('post.index') }}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Список статей</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="{{ route('post.create') }}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Добавить статью</p>
+                      </a>
+                    </li>
+                  </ul>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

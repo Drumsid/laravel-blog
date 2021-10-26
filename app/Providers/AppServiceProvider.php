@@ -29,5 +29,8 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('admin.includes.sidebar', function ($view) {
             $view->with('tagCount', \App\Models\Tag::all()->count());
         });
+        view()->composer('admin.includes.sidebar', function ($view) {
+            $view->with('postCount', \App\Models\Post::all()->count());
+        });
     }
 }
