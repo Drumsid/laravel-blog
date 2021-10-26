@@ -6,7 +6,8 @@
   <title>AdminLTE 3 | Dashboard</title>
 
   @include('admin.includes.mainstyles')
-  @if ($_SERVER['REQUEST_URI'] == '/admin/category' || $_SERVER['REQUEST_URI'] == '/admin/tag' || $_SERVER['REQUEST_URI'] == '/admin/post' )
+  @if ($_SERVER['REQUEST_URI'] == '/admin/category' || $_SERVER['REQUEST_URI'] == '/admin/tag' ||
+      $_SERVER['REQUEST_URI'] == '/admin/post' || $_SERVER['REQUEST_URI'] == '/admin/vocal')
     <!-- DataTables -->
   <link rel="stylesheet" href="{{ asset('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
   <link rel="stylesheet" href="{{ asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
@@ -43,7 +44,8 @@
 
 @include('admin.includes.mainscripts')
 
-@if ($_SERVER['REQUEST_URI'] == '/admin/category' || $_SERVER['REQUEST_URI'] == '/admin/tag' || $_SERVER['REQUEST_URI'] == '/admin/post' )
+@if ($_SERVER['REQUEST_URI'] == '/admin/category' || $_SERVER['REQUEST_URI'] == '/admin/tag' ||
+    $_SERVER['REQUEST_URI'] == '/admin/post' || $_SERVER['REQUEST_URI'] == '/admin/vocal')
 <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
 <script src="{{ asset('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
@@ -59,37 +61,48 @@
 <script>
   $(document).ready(function() {
     $('#category-table').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    });
-});
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
+      });
+  });
   $(document).ready(function() {
-    $('#tag-table').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    });
-});
+      $('#tag-table').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
+      });
+  });
   $(document).ready(function() {
-    $('#post-table').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    });
-});
+      $('#post-table').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
+      });
+  });
+  $(document).ready(function() {
+      $('#vocal-table').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
+      });
+  });
 
 </script>
 @endif

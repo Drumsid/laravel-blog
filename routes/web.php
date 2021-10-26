@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\Category\CategoryController;
 use App\Http\Controllers\Admin\Tag\TagController;
 use App\Http\Controllers\Admin\Post\PostController;
+use App\Http\Controllers\Admin\Vocal\VocalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,7 @@ Route::prefix('admin')->group(function() {
     Route::resource('category', CategoryController::class);
     Route::resource('tag', TagController::class);
     Route::resource('post', PostController::class);
+    Route::resource('vocal', VocalController::class);
 });
 
 Route::get('/getSongs', [TestController::class, 'getSongs']);

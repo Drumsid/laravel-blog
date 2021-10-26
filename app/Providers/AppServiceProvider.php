@@ -32,5 +32,8 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('admin.includes.sidebar', function ($view) {
             $view->with('postCount', \App\Models\Post::all()->count());
         });
+        view()->composer('admin.includes.sidebar', function ($view) {
+            $view->with('vocalCount', \App\Models\Vocal::all()->count());
+        });
     }
 }
