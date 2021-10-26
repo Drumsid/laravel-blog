@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
             PostSeeder::class,
             TagSeeder::class,
             PostTagSeeder::class,
+            SongSeeder::class,
+            VocalSeeder::class,
         ]);
     }
 }

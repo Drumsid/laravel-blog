@@ -3,25 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Category;
-use App\Models\Post;
+use App\Models\Song;
+use App\Models\Vocal;
 use App\Models\Tag;
 
 class TestController extends Controller
 {
-    public function getCategories()
+    public function getSongs()
     {
-        $categories = Category::with('posts')->get();
-        $category = Category::with('posts')->findOrFail(5);
-        return $categories;
+        $categories = Song::with('vocals')->get();
+        $category = Song::with('vocals')->findOrFail(2);
+        // return $categories;
         return $category;
     }
 
-    public function getPosts()
+    public function getVocals()
     {
-        $posts = Post::with('category')->get();
-        $post = Post::with('category')->findOrFail(5);
-        return $posts;
+        $posts = Vocal::with('song')->get();
+        $post = Vocal::with('song')->findOrFail(5);
+        // return $posts;
         return $post;
     }
 

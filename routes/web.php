@@ -38,7 +38,7 @@ Route::prefix('admin')->group(function() {
     Route::resource('post', PostController::class);
 });
 
-Route::get('/getCategories', [TestController::class, 'getCategories']);
-Route::get('/getPosts', [TestController::class, 'getPosts']);
+Route::get('/getSongs', [TestController::class, 'getSongs']);
+Route::get('/getVocals', [TestController::class, 'getVocals']);
 Route::get('/getPostsTags', [TestController::class, 'getPostsTags']);
 Route::get('/getTagsPosts', [TestController::class, 'getTagsPosts']);
