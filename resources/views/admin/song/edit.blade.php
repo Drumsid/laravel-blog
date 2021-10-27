@@ -97,15 +97,24 @@
                             placeholder="Введите размер песни"
                             value="{{ old('original_song') }}">
                   </div> -->
-                  <!-- <div class="form-group">
-                      <label for="tags">Партии вокала</label>
-                      <select class="select2" id="tags" name="vocals[]" multiple="multiple"
-                          data-placeholder="Выбрать партии" style="width: 100%;">
-                          @foreach($vocals as $id => $title)
-                              <option value="{{$id}}">{{$title}}</option>
-                          @endforeach
+                  <div class="form-group">
+                      <label for="tags">Тональность</label>
+                      <select class="select2" id="tonica" name="tonica"
+                          data-placeholder="Выбрать тональность" style="width: 100%;">
+                              <option value="A" @if ($song->tonica === 'A') selected @endif>A</option>
+                              <option value="Bb" @if ($song->tonica === 'Bb') selected @endif>Bb</option>
+                              <option value="B" @if ($song->tonica === 'B') selected @endif>B</option>
+                              <option value="C" @if ($song->tonica === 'C') selected @endif>C</option>
+                              <option value="C#" @if ($song->tonica === 'C#') selected @endif>C#</option>
+                              <option value="D" @if ($song->tonica === 'D') selected @endif>D</option>
+                              <option value="Eb" @if ($song->tonica === 'Eb') selected @endif>Eb</option>
+                              <option value="E" @if ($song->tonica === 'E') selected @endif>E</option>
+                              <option value="F" @if ($song->tonica === 'F') selected @endif>F</option>
+                              <option value="F#" @if ($song->tonica === 'F#') selected @endif>F#</option>
+                              <option value="G" @if ($song->tonica === 'G') selected @endif>G</option>
+                              <option value="G#" @if ($song->tonica === 'G#') selected @endif>G#</option>
                       </select>
-                  </div> -->
+                  </div>
               </div>
               <!-- /.card-body -->
 

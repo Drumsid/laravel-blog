@@ -34,3 +34,5 @@
 <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
 <!-- select2 -->
 <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
+<!-- transpose -->
+<script src="{{ asset('transpose/jquery.transposer.js') }}"></script>

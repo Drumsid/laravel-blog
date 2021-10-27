@@ -14,6 +14,7 @@ class Song extends Model
     protected $fillable = [
         'title',
         'text',
+        'tonica',
         'description',
         'dpm',
         'size',

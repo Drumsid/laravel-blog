@@ -56,6 +56,7 @@
                     <th>Название песни</th>
                     <th>Текст</th>
                     <th>Описание</th>
+                    <th>Тональность</th>
                     <th>dpm</th>
                     <th>Размер</th>
                     <th>Форма</th>
@@ -71,6 +72,7 @@
                       <td>{{$song->title}}</td>
                       <td>{{Str::limit($song->text, 20)}}</td>
                       <td>{{$song->description}}</td>
+                      <td>{{$song->tonica}}</td>
                       <td>{{$song->dpm}}</td>
                       <td>{{$song->size}}</td>
                       <td>{{Str::limit($song->form, 20)}}</td>
@@ -105,6 +107,7 @@
                     <th>Название песни</th>
                     <th>Текст</th>
                     <th>Описание</th>
+                    <th>Тональность</th>
                     <th>dpm</th>
                     <th>Размер</th>
                     <th>Форма</th>

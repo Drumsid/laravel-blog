@@ -18,6 +18,7 @@ class CreateSongsTable extends Migration
             $table->string('title')->unique();
             $table->string('slug');
             $table->text('text');
+            $table->string('tonica');
             $table->text('description')->nullable();
             $table->string('dpm')->nullable();
             $table->string('size')->nullable();

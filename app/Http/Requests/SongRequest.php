@@ -27,6 +27,7 @@ class SongRequest extends FormRequest
             'title' => 'required|min:3',
             'text' => 'required',
             'description' => 'nullable',
+            'tonica' => 'required|max:2',
             'dpm' => 'nullable',
             'size' => 'nullable',
             'form' => 'nullable',

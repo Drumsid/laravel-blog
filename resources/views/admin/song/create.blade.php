@@ -96,15 +96,24 @@
                             placeholder="Введите размер песни"
                             value="{{ old('original_song') }}">
                   </div> -->
-                  <!-- <div class="form-group">
-                      <label for="tags">Партии вокала</label>
-                      <select class="select2" id="tags" name="vocals[]" multiple="multiple"
-                          data-placeholder="Выбрать партии" style="width: 100%;">
-                          @foreach($vocals as $id => $title)
-                              <option value="{{$id}}">{{$title}}</option>
-                          @endforeach
+                  <div class="form-group">
+                      <label for="tags">Тональность</label>
+                      <select class="select2" id="tonica" name="tonica"
+                          data-placeholder="Выбрать тональность" style="width: 100%;">
+                              <option value="A" selected>A</option>
+                              <option value="Bb">Bb</option>
+                              <option value="B">B</option>
+                              <option value="C">C</option>
+                              <option value="C#">C#</option>
+                              <option value="D">D</option>
+                              <option value="Eb">Eb</option>
+                              <option value="E">E</option>
+                              <option value="F">F</option>
+                              <option value="F#">F#</option>
+                              <option value="G">G</option>
+                              <option value="G#">G#</option>
                       </select>
-                  </div> -->
+                  </div>
               </div>
               <!-- /.card-body -->
 

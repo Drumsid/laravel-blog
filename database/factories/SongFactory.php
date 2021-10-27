@@ -24,6 +24,7 @@ class SongFactory extends Factory
         return [
             'title' => 'Song title ' . $this->faker->sentence(3),
             'text' => $this->faker->paragraph(3),
+            'tonica' => $this->faker->randomElement(['A', 'B', 'C', 'D', 'E', 'F', 'G']),
         ];
     }
 }

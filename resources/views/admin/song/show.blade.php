@@ -48,7 +48,9 @@
             <h1>{{ $song->title }}</h1>
           </div>
           <div class="col-sm-6">
-          <a class="btn btn-primary float-right" href="{{ route('song.index') }}" role="button">Вернуться</a>
+              <a class="btn btn-primary float-right" href="{{ route('song.index') }}" role="button">Вернуться</a>
+              <a class="btn btn-primary float-right" style="margin-right: 20px;" href="{{ route('song.edit', $song) }}" role="button">Редактировать</a>
+             
           </div><!-- /.col -->
         </div>
       </div><!-- /.container-fluid -->
@@ -64,11 +66,7 @@
               <h2>{{ $song->title }}</h2>
               </div><!-- /.card-header -->
               <div class="card-body">
-                <pre>
-                  <p>
-                  {{ $song->text }}
-                  </p>
-                </pre>
+                <pre id="transpose">{{ $song->text }}</pre>
               </div><!-- /.card-body -->
             </div>
             <!-- /.card -->
@@ -96,7 +94,9 @@
                 </div>
                 <hr>
                 @empty
+                <div class="vocal-wrapp">
                   <p>Партий еще нет</p>
+                </div>
                 @endforelse
               </div>
 
@@ -134,4 +134,12 @@
   </aside>
   <!-- /.control-sidebar -->
 </div>
+@endsection
+
+@section('transpose')
+<script>
+  $(function() {
+        $("pre#transpose").transpose({ key : '{{$song->tonica}}' });
+      });
+</script>
 @endsection
