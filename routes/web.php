@@ -33,14 +33,17 @@ Route::namespace('App\Http\Controllers\Blog')->group(function() {
     Route::get('/blog', 'IndexController');
 });
 
-Route::prefix('admin')->group(function() {
-    Route::get('/', [MainController::class, 'index'])->name('adminIndex');
-    Route::resource('category', CategoryController::class);
-    Route::resource('tag', TagController::class);
-    Route::resource('post', PostController::class);
-    Route::resource('vocal', VocalController::class);
-    Route::resource('song', SongController::class);
+Route::group(['middleware' => ['role:admin|writer']], function () {
+    Route::prefix('admin')->group(function() {
+        Route::get('/', [MainController::class, 'index'])->name('adminIndex');
+        Route::resource('category', CategoryController::class);
+        Route::resource('tag', TagController::class);
+        Route::resource('post', PostController::class);
+        Route::resource('vocal', VocalController::class);
+        Route::resource('song', SongController::class);
+    });
 });
+
 
 Route::get('/getSongs', [TestController::class, 'getSongs']);
 Route::get('/getVocals', [TestController::class, 'getVocals']);
