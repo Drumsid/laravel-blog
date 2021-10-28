@@ -9,6 +9,8 @@ use App\Http\Controllers\Admin\Tag\TagController;
 use App\Http\Controllers\Admin\Post\PostController;
 use App\Http\Controllers\Admin\Vocal\VocalController;
 use App\Http\Controllers\Admin\Song\SongController;
+use App\Http\Controllers\Admin\User\UserController;
+use App\Http\Controllers\Admin\Role\RoleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,11 +38,18 @@ Route::namespace('App\Http\Controllers\Blog')->group(function() {
 Route::group(['middleware' => ['role:admin|writer']], function () {
     Route::prefix('admin')->group(function() {
         Route::get('/', [MainController::class, 'index'])->name('adminIndex');
+        Route::resource('vocal', VocalController::class);
+        Route::resource('song', SongController::class);
+    });
+});
+Route::group(['middleware' => ['role:admin']], function () {
+    Route::prefix('admin')->group(function() {
         Route::resource('category', CategoryController::class);
         Route::resource('tag', TagController::class);
         Route::resource('post', PostController::class);
-        Route::resource('vocal', VocalController::class);
-        Route::resource('song', SongController::class);
+        Route::resource('user', UserController::class);
+        Route::post('/setWriter/{user}', [RoleController::class, 'setWriter'])->name('setWriter');
+        Route::post('/unsetWriter/{user}', [RoleController::class, 'unsetWriter'])->name('unsetWriter');
     });
 });
 

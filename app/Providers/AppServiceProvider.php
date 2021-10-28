@@ -38,5 +38,8 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('admin.includes.sidebar', function ($view) {
             $view->with('songCount', \App\Models\Song::all()->count());
         });
+        view()->composer('admin.includes.sidebar', function ($view) {
+            $view->with('userCount', \App\Models\User::all()->count());
+        });
     }
 }

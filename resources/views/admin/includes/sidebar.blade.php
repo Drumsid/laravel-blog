@@ -147,6 +147,32 @@
                         </li>
                     </ul>
                 </li>
+                @role('admin')
+                <li class="nav-item nav-opening">
+                    <a href="#" class="nav-link nav-isactive">
+                        <i class="nav-icon far fa-list-alt"></i>
+                        <p>
+                            Пользователи
+                            <i class="right fas fa-angle-left"></i>
+                            <span class="badge badge-info right">{{ $userCount }}</span>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview" style="display: none;">
+                        <li class="nav-item">
+                            <a href="{{ route('user.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Список пользователей</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('user.create') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Добавить пользователя</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                @endrole
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
