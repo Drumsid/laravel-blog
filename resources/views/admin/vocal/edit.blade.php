@@ -68,7 +68,7 @@
                       <label for="exampleInputFile">Аудио партия</label>
                       <div class="input-group">
                           <div class="custom-file">
-                              <input type="file" name="vocal" class="custom-file-input" id="exampleInputFile">
+                              <input type="file" name="vocal" class="custom-file-input" id="exampleInputFile"  value="{{ $vocal->vocal }}">
                               <label class="custom-file-label" for="exampleInputFile">Выберите файл</label>
                           </div>
                       </div>

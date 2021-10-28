@@ -35,15 +35,23 @@ Route::namespace('App\Http\Controllers\Blog')->group(function() {
     Route::get('/blog', 'IndexController');
 });
 
-Route::group(['middleware' => ['role:admin|writer']], function () {
-    Route::prefix('admin')->group(function() {
+// Route::group(['middleware' => ['role:admin|writer']], function () {
+//     Route::prefix('admin')->group(function() {
+//         Route::get('/', [MainController::class, 'index'])->name('adminIndex');
+//         Route::resource('vocal', VocalController::class);
+//         Route::resource('song', SongController::class);
+//     });
+// });
+// Route::group(function () {
+    Route::middleware(['adminWriter'])->prefix('admin')->group(function() {
         Route::get('/', [MainController::class, 'index'])->name('adminIndex');
         Route::resource('vocal', VocalController::class);
         Route::resource('song', SongController::class);
     });
-});
-Route::group(['middleware' => ['role:admin']], function () {
-    Route::prefix('admin')->group(function() {
+// })->middleware('adminWriter');
+
+// Route::group(['middleware' => ['role:admin']], function () {
+    Route::middleware(['admin'])->prefix('admin')->group(function() {
         Route::resource('category', CategoryController::class);
         Route::resource('tag', TagController::class);
         Route::resource('post', PostController::class);
@@ -51,7 +59,7 @@ Route::group(['middleware' => ['role:admin']], function () {
         Route::post('/setWriter/{user}', [RoleController::class, 'setWriter'])->name('setWriter');
         Route::post('/unsetWriter/{user}', [RoleController::class, 'unsetWriter'])->name('unsetWriter');
     });
-});
+// });
 
 
 Route::get('/getSongs', [TestController::class, 'getSongs']);
