@@ -57,7 +57,7 @@
                                             <th>№</th>
                                             <th>Название песни</th>
                                             <th>Текст</th>
-                                            <th>Описание</th>
+                                            <!-- <th>Описание</th> -->
                                             <th>Тональность</th>
                                             <th>dpm</th>
                                             <th>Размер</th>
@@ -73,25 +73,27 @@
                                             <td>{{$key + 1}}</td>
                                             <td>{{$song->title}}</td>
                                             <td>{{Str::limit($song->text, 20)}}</td>
-                                            <td>{{$song->description}}</td>
+                                            <!-- <td>{{$song->description}}</td> -->
                                             <td>{{$song->tonica}}</td>
                                             <td>{{$song->dpm}}</td>
                                             <td>{{$song->size}}</td>
                                             <td>{{Str::limit($song->form, 20)}}</td>
                                             <td>{{$song->vocals->pluck('title')->join(', ')}}</td>
                                             <td>{{$song->original_song}}</td>
-                                            <td style="white-space: nowrap; width: 110px">
+                                            <td style="white-space: nowrap; width: 110px" >
                                                 <a href="{{ route('song.edit', $song) }}"
-                                                    class="btn btn-info btn-sm float-left mr-1">
+                                                    class="btn btn-info btn-sm float-left mr-1"
+                                                    title="Редактировать">
                                                     <i class="fas fa-pencil-alt"></i>
                                                 </a>
                                                 <a href="{{ route('song.show', $song) }}"
-                                                    class="btn btn-info btn-sm float-left mr-1">
+                                                    class="btn btn-info btn-sm float-left mr-1"
+                                                    title="Просмотр">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
                                                 @role('admin')
                                                 <form action="{{ route('song.destroy', $song) }}" method="post"
-                                                    class="float-left">
+                                                    class="float-left" title="Удалить">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"
@@ -113,7 +115,7 @@
                                             <th>№</th>
                                             <th>Название песни</th>
                                             <th>Текст</th>
-                                            <th>Описание</th>
+                                            <!-- <th>Описание</th> -->
                                             <th>Тональность</th>
                                             <th>dpm</th>
                                             <th>Размер</th>

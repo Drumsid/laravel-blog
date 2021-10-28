@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="{{ asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
   <link rel="stylesheet" href="{{ asset('plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
   @endif
+  @yield('styleTop')
   <style>
     .alert {
       z-index: 10000;
@@ -204,5 +205,6 @@ $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
   
 </script>
 @yield('transpose')
+@yield('scriptBottom')
 </body>
 </html>
