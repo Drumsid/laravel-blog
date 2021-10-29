@@ -29,11 +29,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Песни</h1>
+                        <h1 class="m-0">Оригиналы песен</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
-                        <a class="btn btn-primary float-right" href="{{ route('song.create') }}" role="button">Добавить
-                            песню</a>
+                        <a class="btn btn-primary float-right" href="{{ route('originalsong.create') }}"
+                            role="button">Добавить
+                            оригинал песни</a>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -55,53 +56,25 @@
                                     <thead>
                                         <tr>
                                             <th>№</th>
-                                            <th>Название песни</th>
-                                            <th>Текст</th>
-                                            <th>Тональность</th>
-                                            <th>dpm</th>
-                                            <th>Размер</th>
-                                            <th>Форма</th>
-                                            <th>Партии</th>
-                                            <th>Оригинал песни</th>
-                                            <th>Aprooved</th>
+                                            <th>Название партии</th>
+                                            <th>Принадлежит песне</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @forelse ($songs as $key => $song)
+                                        @forelse ($originalSong as $key => $originalsong)
                                         <tr>
                                             <td>{{$key + 1}}</td>
-                                            <td>{{$song->title}}</td>
-                                            <td>{{Str::limit($song->text, 20)}}</td>
-                                            <td>{{$song->tonica}}</td>
-                                            <td>{{$song->dpm}}</td>
-                                            <td>{{$song->size}}</td>
-                                            <td>{{Str::limit($song->form, 20)}}</td>
-                                            <td>{{$song->vocals->pluck('title')->join(', ')}}</td>
+                                            <td>{{$originalsong->title}}</td>
+                                            <td>{{$originalsong->song->title}}</td>
                                             <td>
-                                                @if ($song->originalSong)
-                                                {{$song->originalSong->title}}
-                                                @endif
-                                            </td>
-                                            <td>
-                                                @if ($song->is_approved)
-                                                <i class="badge bg-blue">Одобрен</i>
-                                                @else
-                                                <i class="badge bg-pink">Не одобрен</i>
-                                                @endif
-                                            </td>
-                                            <td style="white-space: nowrap; width: 110px">
-                                                <a href="{{ route('song.edit', $song) }}"
-                                                    class="btn btn-info btn-sm float-left mr-1" title="Редактировать">
+                                                <a href="{{ route('originalsong.edit', $originalsong) }}"
+                                                    class="btn btn-info btn-sm float-left mr-1">
                                                     <i class="fas fa-pencil-alt"></i>
                                                 </a>
-                                                <a href="{{ route('song.show', $song) }}"
-                                                    class="btn btn-info btn-sm float-left mr-1" title="Просмотр">
-                                                    <i class="fas fa-eye"></i>
-                                                </a>
                                                 @role('admin')
-                                                <form action="{{ route('song.destroy', $song) }}" method="post"
-                                                    class="float-left" title="Удалить">
+                                                <form action="{{ route('originalsong.destroy', $originalsong) }}"
+                                                    method="post" class="float-left">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"
@@ -114,22 +87,17 @@
                                             </td>
                                         </tr>
                                         @empty
-                                        <p>No songs</p>
+                                        <tr>
+                                            <p>No originalsong</p>
+                                        </tr>
                                         @endforelse
 
                                     </tbody>
                                     <tfoot>
                                         <tr>
                                             <th>№</th>
-                                            <th>Название песни</th>
-                                            <th>Текст</th>
-                                            <th>Тональность</th>
-                                            <th>dpm</th>
-                                            <th>Размер</th>
-                                            <th>Форма</th>
-                                            <th>Партии</th>
-                                            <th>Оригинал песни</th>
-                                            <th>Aprooved</th>
+                                            <th>Название партии</th>
+                                            <th>Принадлежит песне</th>
                                             <th>Actions</th>
                                         </tr>
                                     </tfoot>

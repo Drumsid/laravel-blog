@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\Vocal\VocalController;
 use App\Http\Controllers\Admin\Song\SongController;
 use App\Http\Controllers\Admin\User\UserController;
 use App\Http\Controllers\Admin\Role\RoleController;
+use App\Http\Controllers\Admin\OriginalSong\OriginalSongController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,7 @@ Route::namespace('App\Http\Controllers\Blog')->group(function() {
         Route::get('/', [MainController::class, 'index'])->name('adminIndex');
         Route::resource('vocal', VocalController::class);
         Route::resource('song', SongController::class);
+        Route::resource('originalsong', OriginalSongController::class);
     });
 // })->middleware('adminWriter');
 

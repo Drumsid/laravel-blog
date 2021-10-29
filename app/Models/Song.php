@@ -39,4 +39,9 @@ class Song extends Model
     {
         return 'slug';
     }
+
+    public function originalSong()
+    {
+        return $this->hasOne(OriginalSong::class);
+    }
 }

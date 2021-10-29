@@ -120,6 +120,9 @@ class SongController extends Controller
                     Storage::delete($vocal->vocal);
                 }
             }
+            if ($song->originalSong) {
+                Storage::delete($song->originalSong->song_name);
+            }
             $song->delete();
             return redirect()->route('song.index')->with('success', 'Песня удалена!');
         }

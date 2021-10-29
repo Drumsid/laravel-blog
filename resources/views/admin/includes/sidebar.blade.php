@@ -107,6 +107,30 @@
                     <a href="#" class="nav-link nav-isactive">
                         <i class="nav-icon fas fa-microphone"></i>
                         <p>
+                            Оригиналы песен
+                            <i class="right fas fa-angle-left"></i>
+                            <span class="badge badge-info right">{{ $originalCount }}</span>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview" style="display: none;">
+                        <li class="nav-item">
+                            <a href="{{ route('originalsong.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Список песен</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('originalsong.create') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Добавить песню</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item nav-opening">
+                    <a href="#" class="nav-link nav-isactive">
+                        <i class="nav-icon fas fa-microphone"></i>
+                        <p>
                             Партии вокала
                             <i class="right fas fa-angle-left"></i>
                             <span class="badge badge-info right">{{ $vocalCount }}</span>

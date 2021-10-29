@@ -5,16 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Song;
 use App\Models\Vocal;
-use App\Models\Tag;
+use App\Models\OriginalSong;
 
 class TestController extends Controller
 {
     public function getSongs()
     {
-        $categories = Song::with('vocals')->get();
-        $category = Song::with('vocals')->findOrFail(2);
-        // return $categories;
-        return $category;
+        $categories = OriginalSong::with('song')->get();
+        $song = OriginalSong::findOrFail(1);
+        return $categories;
+        return $song->song;
     }
 
     public function getVocals()
