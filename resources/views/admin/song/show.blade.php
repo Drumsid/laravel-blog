@@ -86,11 +86,15 @@
                                 <h3 class="card-title">Оригинал песни</h3>
                             </div>
                             <div class="vocal-wrapp">
-                                <p>{{ $song->originalSong->title }}</p>
+                                
                                 @if ($song->originalSong)
+                                <p>{{ $song->originalSong->title }}</p>
                                 <audio controls="controls"
                                     src="{{ asset("uploads/{$song->originalSong->song_name}") }}"></audio>
+                                @else
+                                <p>Пока оригинала песни нет</p>
                                 @endif
+                                
                             </div>
 
 
