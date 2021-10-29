@@ -8,6 +8,7 @@ use App\Models\Song;
 use App\Models\Vocal;
 use App\Http\Requests\SongRequest;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class SongController extends Controller
 {
@@ -42,6 +43,11 @@ class SongController extends Controller
     public function store(SongRequest $request)
     {
         $data = $request->validated();
+        if (Auth::user()->hasAnyRole(['admin'])) {
+            $data['is_approved'] = true;
+        } else {
+            $data['is_approved'] = false;
+        }
         
         $song = Song::create($data);
         return redirect()->route('song.index')->with('success', 'Песня добавлена!');
@@ -118,5 +124,20 @@ class SongController extends Controller
             return redirect()->route('song.index')->with('success', 'Песня удалена!');
         }
         return back()->with('error', 'Песня не найдена!');
+    }
+    public function pending()
+    {
+        $songs = Song::where('is_approved', false)->get();
+        return view('admin.song.pending', compact('songs'));
+    }
+
+    public function approval($slug)
+    {
+        $song = Song::where('slug', $slug)->first();
+        $song->update([
+            'is_approved' => true
+        ]);
+
+        return redirect(route('song.pending'))->with('success', 'Песня одобрена!!!');
     }
 }

@@ -16,6 +16,10 @@
             <div class="info">
                 <a href="#" class="d-block">{{Auth::user()->name}}</a>
             </div>
+
+
+
+
         </div>
 
         <!-- Sidebar Menu -->
@@ -51,7 +55,7 @@
                 </li>
                 <li class="nav-item nav-opening">
                     <a href="#" class="nav-link nav-isactive">
-                        <i class="nav-icon far fa-list-alt"></i>
+                        <i class="nav-icon fas fa-tags"></i>
                         <p>
                             Тэги
                             <i class="right fas fa-angle-left"></i>
@@ -75,7 +79,7 @@
                 </li>
                 <li class="nav-item nav-opening">
                     <a href="#" class="nav-link nav-isactive">
-                        <i class="nav-icon far fa-list-alt"></i>
+                        <i class="nav-icon fas fa-clipboard"></i>
                         <p>
                             Статьи
                             <i class="right fas fa-angle-left"></i>
@@ -101,7 +105,7 @@
 
                 <li class="nav-item nav-opening">
                     <a href="#" class="nav-link nav-isactive">
-                        <i class="nav-icon far fa-list-alt"></i>
+                        <i class="nav-icon fas fa-microphone"></i>
                         <p>
                             Партии вокала
                             <i class="right fas fa-angle-left"></i>
@@ -125,7 +129,7 @@
                 </li>
                 <li class="nav-item nav-opening">
                     <a href="#" class="nav-link nav-isactive">
-                        <i class="nav-icon far fa-list-alt"></i>
+                    <i class="nav-icon fas fa-compact-disc"></i>
                         <p>
                             Песни
                             <i class="right fas fa-angle-left"></i>
@@ -150,7 +154,7 @@
                 @role('admin')
                 <li class="nav-item nav-opening">
                     <a href="#" class="nav-link nav-isactive">
-                        <i class="nav-icon far fa-list-alt"></i>
+                    <i class="nav-icon fas fa-user"></i>
                         <p>
                             Пользователи
                             <i class="right fas fa-angle-left"></i>
@@ -172,8 +176,37 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item nav-opening">
+                    <a href="#" class="nav-link nav-isactive">
+                        <i class="nav-icon fas fa-check-circle"></i>
+                        <p>
+                            На одобрение
+                            <i class="right fas fa-angle-left"></i>
+                            <span class="badge badge-info right">{{ $pendingCount }}</span>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview" style="display: none;">
+                        <li class="nav-item">
+                            <a href="{{ route('song.pending') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Список несен</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 @endrole
             </ul>
+            <div class="fixed-bottom ml-2 mb-2" >
+                <a class="btn btn-outline-danger" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                    Выйти из акккаунта
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            </div>
         </nav>
         <!-- /.sidebar-menu -->
     </div>

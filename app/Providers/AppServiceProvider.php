@@ -41,5 +41,8 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('admin.includes.sidebar', function ($view) {
             $view->with('userCount', \App\Models\User::all()->count());
         });
+        view()->composer('admin.includes.sidebar', function ($view) {
+            $view->with('pendingCount', \App\Models\Song::where('is_approved', false)->count());
+        });
     }
 }

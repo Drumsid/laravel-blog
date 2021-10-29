@@ -58,6 +58,9 @@ Route::namespace('App\Http\Controllers\Blog')->group(function() {
         Route::resource('user', UserController::class);
         Route::post('/setWriter/{user}', [RoleController::class, 'setWriter'])->name('setWriter');
         Route::post('/unsetWriter/{user}', [RoleController::class, 'unsetWriter'])->name('unsetWriter');
+
+        Route::get('pending/song', [SongController::class, 'pending'])->name('song.pending');
+        Route::put('song/{song}/approve', [SongController::class, 'approval'])->name('song.approve');
     });
 // });
 

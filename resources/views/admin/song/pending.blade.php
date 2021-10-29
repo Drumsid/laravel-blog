@@ -29,11 +29,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Песни</h1>
-                    </div><!-- /.col -->
-                    <div class="col-sm-6">
-                        <a class="btn btn-primary float-right" href="{{ route('song.create') }}" role="button">Добавить
-                            песню</a>
+                        <h1 class="m-0">Песни на одобрение</h1>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -51,16 +47,13 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <table id="song-table" class="table table-bordered table-hover">
+                                <table id="pending-table" class="table table-bordered table-hover">
                                     <thead>
                                         <tr>
                                             <th>№</th>
                                             <th>Название песни</th>
                                             <th>Текст</th>
                                             <th>Тональность</th>
-                                            <th>dpm</th>
-                                            <th>Размер</th>
-                                            <th>Форма</th>
                                             <th>Партии</th>
                                             <th>Оригинал песни</th>
                                             <th>Aprooved</th>
@@ -74,9 +67,6 @@
                                             <td>{{$song->title}}</td>
                                             <td>{{Str::limit($song->text, 20)}}</td>
                                             <td>{{$song->tonica}}</td>
-                                            <td>{{$song->dpm}}</td>
-                                            <td>{{$song->size}}</td>
-                                            <td>{{Str::limit($song->form, 20)}}</td>
                                             <td>{{$song->vocals->pluck('title')->join(', ')}}</td>
                                             <td>{{$song->original_song}}</td>
                                             <td>
@@ -86,7 +76,7 @@
                                                 <i class="badge bg-pink">Не одобрен</i>
                                                 @endif
                                             </td>
-                                            <td style="white-space: nowrap; width: 110px">
+                                            <td style="white-space: nowrap; width: 160px">
                                                 <a href="{{ route('song.edit', $song) }}"
                                                     class="btn btn-info btn-sm float-left mr-1" title="Редактировать">
                                                     <i class="fas fa-pencil-alt"></i>
@@ -96,6 +86,15 @@
                                                     <i class="fas fa-eye"></i>
                                                 </a>
                                                 @role('admin')
+                                                <form action="{{ route('song.approve', $song) }}" method="post"
+                                                    class="float-left mr-1" title="approve">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    <button type="submit" class="btn btn-success btn-sm"
+                                                        onclick="return confirm('Подтвердите approval')">
+                                                        <i class="fas fa-thumbs-up"></i>
+                                                    </button>
+                                                </form>
                                                 <form action="{{ route('song.destroy', $song) }}" method="post"
                                                     class="float-left" title="Удалить">
                                                     @csrf
@@ -120,9 +119,6 @@
                                             <th>Название песни</th>
                                             <th>Текст</th>
                                             <th>Тональность</th>
-                                            <th>dpm</th>
-                                            <th>Размер</th>
-                                            <th>Форма</th>
                                             <th>Партии</th>
                                             <th>Оригинал песни</th>
                                             <th>Aprooved</th>

@@ -19,6 +19,7 @@ class CreateSongsTable extends Migration
             $table->string('slug');
             $table->text('text');
             $table->string('tonica');
+            $table->boolean('is_approved')->default(false);
             $table->text('description')->nullable();
             $table->string('dpm')->nullable();
             $table->string('size')->nullable();

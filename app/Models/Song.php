@@ -20,6 +20,7 @@ class Song extends Model
         'size',
         'form',
         'original_song',
+        'is_approved',
     ];
 
     public function vocals()
