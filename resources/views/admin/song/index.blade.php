@@ -63,6 +63,7 @@
                                             <th>Форма</th>
                                             <th>Партии</th>
                                             <th>Оригинал песни</th>
+                                            <th>Добавил</th>
                                             <th>Aprooved</th>
                                             <th>Actions</th>
                                         </tr>
@@ -84,12 +85,18 @@
                                                 @endif
                                             </td>
                                             <td>
+                                                @if ($song->user_name)
+                                                {{ $song->user_name }}
+                                                @endif
+                                            </td>
+                                            <td>
                                                 @if ($song->is_approved)
                                                 <i class="badge bg-blue">Одобрен</i>
                                                 @else
                                                 <i class="badge bg-pink">Не одобрен</i>
                                                 @endif
                                             </td>
+
                                             <td style="white-space: nowrap; width: 110px">
                                                 <a href="{{ route('song.edit', $song) }}"
                                                     class="btn btn-info btn-sm float-left mr-1" title="Редактировать">
@@ -129,6 +136,7 @@
                                             <th>Форма</th>
                                             <th>Партии</th>
                                             <th>Оригинал песни</th>
+                                            <th>Добавил</th>
                                             <th>Aprooved</th>
                                             <th>Actions</th>
                                         </tr>

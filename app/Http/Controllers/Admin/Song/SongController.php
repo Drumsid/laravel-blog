@@ -48,7 +48,9 @@ class SongController extends Controller
         } else {
             $data['is_approved'] = false;
         }
-        
+        if (Auth::user()) {
+            $data['user_name'] = Auth::user()->name;
+        }
         $song = Song::create($data);
         return redirect()->route('song.index')->with('success', 'Песня добавлена!');
     }

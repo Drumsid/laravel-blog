@@ -21,6 +21,7 @@ class Song extends Model
         'form',
         'original_song',
         'is_approved',
+        'user_name',
     ];
 
     public function vocals()
