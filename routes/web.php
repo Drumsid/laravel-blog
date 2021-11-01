@@ -25,8 +25,9 @@ use App\Http\Controllers\Admin\OriginalSong\OriginalSongController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('front.pages.index');
+    // return view('welcome');
+})->name('mainPage');
 
 Auth::routes();
 
