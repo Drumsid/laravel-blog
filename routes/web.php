@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\Song\SongController;
 use App\Http\Controllers\Admin\User\UserController;
 use App\Http\Controllers\Admin\Role\RoleController;
 use App\Http\Controllers\Admin\OriginalSong\OriginalSongController;
+use App\Http\Controllers\Front\MailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,3 +73,5 @@ Route::get('/getSongs', [TestController::class, 'getSongs']);
 Route::get('/getVocals', [TestController::class, 'getVocals']);
 Route::get('/getPostsTags', [TestController::class, 'getPostsTags']);
 Route::get('/getTagsPosts', [TestController::class, 'getTagsPosts']);
+
+Route::post('/sendMail', [MailController::class, 'sendMail'])->name('feedback');

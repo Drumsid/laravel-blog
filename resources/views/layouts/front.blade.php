@@ -14,6 +14,25 @@
 
     <title>Song Base</title>
 </head>
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul class="list-unstyled">
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+@if (session()->has('success'))
+<div class="alert alert-success">
+    {{ session('success') }}
+</div>
+@endif
+@if (session()->has('error'))
+<div class="alert alert-danger">
+    {{ session('error') }}
+</div>
+@endif
 
 <body>
     <div class="container-fluid">
@@ -97,10 +116,14 @@
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
 
-    <script src="{{ asset('front/js/jquery.slim.min.js') }}" crossorigin="anonymous"></script>
+    <!-- <script src="{{ asset('front/js/jquery.slim.min.js') }}" crossorigin="anonymous"></script> -->
+    <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('front/js/popper.min.js') }}"></script>
     <script src="{{ asset('front/js/bootstrap.min.js') }}" crossorigin="anonymous"></script>
+    <script>
+        $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
 
+    </script>
 </body>
 
 </html>
