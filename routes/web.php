@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\User\UserController;
 use App\Http\Controllers\Admin\Role\RoleController;
 use App\Http\Controllers\Admin\OriginalSong\OriginalSongController;
 use App\Http\Controllers\Front\MailController;
+use App\Http\Controllers\Front\SongBaseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,3 +76,6 @@ Route::get('/getPostsTags', [TestController::class, 'getPostsTags']);
 Route::get('/getTagsPosts', [TestController::class, 'getTagsPosts']);
 
 Route::post('/sendMail', [MailController::class, 'sendMail'])->name('feedback');
+
+Route::get('/songs', [SongBaseController::class, 'index'])->name('allSongs');
+Route::get('/song/{song}', [SongBaseController::class, 'show'])->name('showSong');

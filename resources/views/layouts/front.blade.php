@@ -11,8 +11,31 @@
     <link rel="stylesheet" href="{{ asset('front/css/animate.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('front/css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('front/css/responsive.css') }}">
-
+    @yield('transposeStyle')
     <title>Song Base</title>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () {
+                (m[i].a = m[i].a || []).push(arguments)
+            };
+            m[i].l = 1 * new Date();
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode
+                .insertBefore(k, a)
+        })
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(86241966, "init", {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true
+        });
+
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/86241966" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
 </head>
 @if ($errors->any())
 <div class="alert alert-danger">
@@ -52,7 +75,7 @@
                                     class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Список песен</a>
+                            <a class="nav-link" href="{{ route('allSongs') }}">Список песен</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav">
@@ -124,6 +147,7 @@
         $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
 
     </script>
+    @yield('transpose')
 </body>
 
 </html>
