@@ -5,12 +5,10 @@
             <!-- <div class="row"> -->
             <div class="main-slider">
                 <div class="slide-text">
-                    <h1>Команда пролсавления</h1>
+                    <h1>Команда прославления</h1>
                     <p>Церкви Слово Жизни Долгопрудный. На этом ресурсе находятся тексты песен которые мы
                         используем на служениях. </p>
-                    @guest
-                    <a href="{{ route('login') }}" class="btn btn-outline-success">Войти</a>
-                    @endguest
+
 
                 </div>
                 <img src="{{ asset('front/images/home/slider/hill.png') }}"
@@ -31,8 +29,8 @@
     <div class="container-fluid mt-70 card-primer">
         <div class="container">
             <!-- Three columns of text below the carousel -->
-            <div class="row">
-                <div class="col-lg-4">
+            <div class="row d-flex flex-wrap">
+                <div class="col-lg-4 d-flex flex-column justify-content-between align-items-center">
                     <img class="rounded-circle rounded-width" src="{{ asset('front/images/home/chords.jpg') }}"
                         alt="Generic placeholder image" width="140" height="140">
                     <h2>Тексты песен с аккордами</h2>
@@ -41,7 +39,7 @@
                     </p>
                     <p><a class="btn btn-secondary" href="#" role="button">Смотреть</a></p>
                 </div><!-- /.col-lg-4 -->
-                <div class="col-lg-4">
+                <div class="col-lg-4  d-flex flex-column justify-content-between align-items-center">
                     <img class="rounded-circle rounded-width" src="{{ asset('front/images/home/vocal.jpg') }}"
                         alt="Generic placeholder image" width="140" height="140">
                     <h2>Партии песен</h2>
@@ -49,7 +47,7 @@
                     </p>
                     <p><a class="btn btn-secondary" href="#" role="button">Смотреть</a></p>
                 </div><!-- /.col-lg-4 -->
-                <div class="col-lg-4">
+                <div class="col-lg-4 d-flex flex-column justify-content-between align-items-center">
                     <img class="rounded-circle rounded-width" src="{{ asset('front/images/home/temp.jpg') }}"
                         alt="Generic placeholder image" width="140" height="140">
                     <h2>Темп, размер, форма песни</h2>

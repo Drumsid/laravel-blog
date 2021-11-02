@@ -43,6 +43,9 @@
                         </li>
                         @endhasanyrole
                         @guest
+                        <li class="nav-item mr-1">
+                            <a href="{{ route('login') }}" class="btn btn-outline-success">Войти</a>
+                        </li>
                         <li class="nav-item">
                             <a class="btn btn-outline-info" href="{{ route('register') }}">Регистрация</a>
                         </li>
@@ -70,13 +73,12 @@
         </div>
 
     </div>
-@yield('content')
+    @yield('content')
 
     <div class="container-fluid text-center mt-70">
         <div class="container">
             <footer class="blog-footer">
-                <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a
-                        href="https://twitter.com/mdo">@mdo</a>.</p>
+                <p>SongBase © 2021 - <?= date("Y") ?> Drumsid</p>
                 <p>
                     <a href="#">Back to top</a>
                 </p>
