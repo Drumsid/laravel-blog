@@ -129,7 +129,7 @@
                 </li>
                 <li class="nav-item nav-opening">
                     <a href="#" class="nav-link nav-isactive">
-                        <i class="nav-icon fas fa-microphone"></i>
+                        <i class="nav-icon fas fa-music"></i>
                         <p>
                             Партии вокала
                             <i class="right fas fa-angle-left"></i>

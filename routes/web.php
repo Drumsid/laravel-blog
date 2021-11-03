@@ -39,13 +39,6 @@ Route::namespace('App\Http\Controllers\Blog')->group(function() {
     Route::get('/blog', 'IndexController');
 });
 
-// Route::group(['middleware' => ['role:admin|writer']], function () {
-//     Route::prefix('admin')->group(function() {
-//         Route::get('/', [MainController::class, 'index'])->name('adminIndex');
-//         Route::resource('vocal', VocalController::class);
-//         Route::resource('song', SongController::class);
-//     });
-// });
 // Route::group(function () {
     Route::middleware(['adminWriter'])->prefix('admin')->group(function() {
         Route::get('/', [MainController::class, 'index'])->name('adminIndex');
