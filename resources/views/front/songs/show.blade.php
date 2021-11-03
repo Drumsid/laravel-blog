@@ -1,5 +1,5 @@
 @extends('layouts.front')
-@section('transposeStyle')
+@section('otherStyle')
 <!-- transpose -->
 <link rel="stylesheet" href="{{ asset('transpose/jquery.transposer.css') }}">
 @endsection
@@ -125,7 +125,7 @@
 
 @endsection
 
-@section('transpose')
+@section('otherScripts')
 <!-- transpose -->
 <script src="{{ asset('transpose/jquery.transposer.js') }}"></script>
 <script>

@@ -10,8 +10,9 @@ class SongBaseController extends Controller
 {
     public function index()
     {
-        $songs = Song::orderBy('created_at', 'DESC')->get();
-        return view('front.songs.index', compact('songs'));
+        $songs = Song::where('is_approved', true)->get();
+        $songCount = count($songs);
+        return view('front.songs.index', compact('songs', 'songCount'));
     }
 
     public function show($slug)

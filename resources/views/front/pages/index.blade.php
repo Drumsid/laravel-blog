@@ -26,43 +26,44 @@
     </div>
     <!-- <div class="preloader"><i class="fa fa-sun-o fa-spin"></i></div> -->
 </section>
-<div class="container-fluid mt-70 card-primer">
+<div class="container-fluid mt-100 card-primer">
     <div class="container">
         <!-- Three columns of text below the carousel -->
+        <h3 class="text-center mb-70">Как назвать этот раздел?</h3>
         <div class="row d-flex flex-wrap">
-            <div class="col-lg-4 d-flex flex-column justify-content-between align-items-center">
-                <img class="rounded-circle rounded-width" src="{{ asset('front/images/home/chords.jpg') }}"
+            <div class="col-lg-4 d-flex flex-column justify-content-between align-items-center mb-5">
+                <img class="rounded-circle rounded-width mb-3" src="{{ asset('front/images/home/chords.jpg') }}"
                     alt="Generic placeholder image" width="140" height="140">
-                <h2>Тексты песен с аккордами</h2>
-                <p>Мы разместили песни в алфавитном порядке. Каждый текст песни можно транспонировать в нужную
+                <h2 class=" mb-3">Тексты песен с аккордами</h2>
+                <p class=" mb-3">Мы разместили песни в алфавитном порядке. Каждый текст песни можно транспонировать в нужную
                     тональность.
                 </p>
-                <p><a class="btn btn-secondary" href="#" role="button">Смотреть</a></p>
+                <p class=" mb-3"><a class="btn btn-secondary" href="{{ route('allSongs') }}" role="button">Смотреть</a></p>
             </div><!-- /.col-lg-4 -->
-            <div class="col-lg-4  d-flex flex-column justify-content-between align-items-center">
-                <img class="rounded-circle rounded-width" src="{{ asset('front/images/home/vocal.jpg') }}"
+            <div class="col-lg-4  d-flex flex-column justify-content-between align-items-center mb-5">
+                <img class="rounded-circle rounded-width mb-3" src="{{ asset('front/images/home/vocal.jpg') }}"
                     alt="Generic placeholder image" width="140" height="140">
-                <h2>Партии песен</h2>
-                <p>Так же к тексту песни можно привязать вокальные партии и прослушать перед подготовкой к служению
+                <h2 class=" mb-3">Партии песен</h2>
+                <p class=" mb-3">Так же к тексту песни можно привязать вокальные партии и прослушать перед подготовкой к служению
                 </p>
-                <p><a class="btn btn-secondary" href="#" role="button">Смотреть</a></p>
+                <p class=" mb-3"><a class="btn btn-secondary" href="{{ route('allSongs') }}" role="button">Смотреть</a></p>
             </div><!-- /.col-lg-4 -->
-            <div class="col-lg-4 d-flex flex-column justify-content-between align-items-center">
-                <img class="rounded-circle rounded-width" src="{{ asset('front/images/home/temp.jpg') }}"
+            <div class="col-lg-4 d-flex flex-column justify-content-between align-items-center mb-5">
+                <img class="rounded-circle rounded-width mb-3" src="{{ asset('front/images/home/temp.jpg') }}"
                     alt="Generic placeholder image" width="140" height="140">
-                <h2>Темп, размер, форма песни</h2>
-                <p>Есть возможность привязать к тексту темп песни, размер песни, форму песни (последовательность) и
+                <h2 class=" mb-3">Темп, размер, форма песни</h2>
+                <p class=" mb-3">Есть возможность привязать к тексту темп песни, размер песни, форму песни (последовательность) и
                     даже
                     прикрепить туториал (в разработке).</p>
-                <p><a class="btn btn-secondary" href="#" role="button">Смотреть</a></p>
+                <p class=" mb-3"><a class="btn btn-secondary" href="{{ route('allSongs') }}" role="button">Смотреть</a></p>
             </div><!-- /.col-lg-4 -->
         </div><!-- /.row -->
     </div>
 </div>
-<div class="container-fluid mt-70 ">
+<div class="container-fluid mt-100 ">
     <div class="container">
         <!-- START THE FEATURETTES -->
-
+        <h3 class="text-center  mb-70">Как назвать этот раздел?</h3>
         <hr class="featurette-divider">
 
         <div class="row featurette">
@@ -112,7 +113,7 @@
     </div>
 </div>
 
-<div class="container-fluid mt-70">
+<div class="container-fluid mt-100">
     <div class="container">
         <div class="row justify-content-md-center">
             <div class="row featurette text-center">
@@ -134,7 +135,7 @@
     </div>
 </div>
 
-<div class="container-fluid mt-70">
+<div class="container-fluid mt-100">
     <div class="container">
         <div class="row justify-content-md-center">
             <div class="col-12 col-sm-8">

@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{ asset('front/css/animate.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('front/css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('front/css/responsive.css') }}">
-    @yield('transposeStyle')
+    @yield('otherStyle')
     <title>Song Base</title>
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
@@ -81,24 +81,26 @@
                     </ul>
                     <ul class="navbar-nav">
                         @hasanyrole('admin|writer')
-                        <li class="nav-item mr-1">
+                        <li class="nav-item mr-1 mb-2">
                             <a class="btn btn-outline-info" href="{{ route('adminIndex') }}">Админка</a>
                         </li>
                         @endhasanyrole
                         @guest
-                        <li class="nav-item mr-1">
+                        <li class="nav-item mr-1 mb-2">
                             <a href="{{ route('login') }}" class="btn btn-outline-success">Войти</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item mr-1 mb-2">
                             <a class="btn btn-outline-info" href="{{ route('register') }}">Регистрация</a>
                         </li>
                         @endguest
 
                         @auth
-                        <a class="btn btn-outline-danger" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                            Выйти из акккаунта
-                        </a>
+                        <li class="nav-item mr-1 mb-2">
+                            <a class="btn btn-outline-danger" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                Выйти из акккаунта
+                            </a>
+                        </li>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
@@ -118,7 +120,7 @@
     </div>
     @yield('content')
 
-    <div class="container-fluid text-center mt-70">
+    <div class="container-fluid text-center mt-100">
         <div class="container">
             <footer class="blog-footer">
                 <p>SongBase © 2021 - <?= date("Y") ?> Drumsid</p>
@@ -148,7 +150,7 @@
         $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
 
     </script>
-    @yield('transpose')
+    @yield('otherScripts')
 </body>
 
 </html>
