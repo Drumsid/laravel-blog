@@ -65,7 +65,10 @@
                                     <label for="song_id">Песня</label>
                                     <select class="form-control" id="song_id" name="song_id">
                                         @foreach($songs as $id => $title)
-                                        <option value="{{$id}}">{{$title}}</option>
+                                        <option value="{{$id}}"
+                                        @if (old('song_id')==$id) selected @endif>
+                                            {{$title}}
+                                        </option>
                                         @endforeach
                                     </select>
                                 </div>
