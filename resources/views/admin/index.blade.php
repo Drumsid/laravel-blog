@@ -85,6 +85,21 @@
             </div>
           </div>
           <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-dark text-white">
+              <div class="inner">
+                <h3>{{ $tutorialCount }}</h3>
+
+                <p>Туториалы</p>
+              </div>
+              <div class="icon text-white-50">
+                <i class="fas fa-book"></i>
+              </div>
+              <a href="{{ route('tutorial.index') }}" class="small-box-footer">Подробнее <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
           @role('admin')
           <div class="col-lg-3 col-6">
             <!-- small box -->

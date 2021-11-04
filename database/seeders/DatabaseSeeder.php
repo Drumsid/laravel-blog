@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             PostTagSeeder::class,
             SongSeeder::class,
             VocalSeeder::class,
+            TutorialSeeder::class,
         ]);
     }
 }

@@ -30,6 +30,26 @@
                     font-weight: bold;
                 }
 
+                .framewrap {
+                    overflow: hidden;
+                    position: relative;
+                    width: 100%;
+                }
+
+                .framewrap::after {
+                    padding-top: 56.25%;
+                    display: block;
+                    content: '';
+                }
+
+                .framewrap iframe {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+
             </style>
 
             <!-- Content Wrapper. Contains page content -->
@@ -115,6 +135,55 @@
                         </div>
                         <!-- /.row -->
                     </div><!-- /.container-fluid -->
+                    @if ($song->tutorials->count())
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h2 class="mb-4">Туториалы</h2>
+                                <div id="accordion">
+                                    @foreach ($song->tutorials as $tutorial)
+
+                                    <div class="card">
+                                        <div class="card-header" id="heading{{$tutorial->slug}}">
+                                            <h5 class="mb-0">
+                                                <button class="btn btn-link text-dark" data-toggle="collapse"
+                                                    data-target="#collapse{{$tutorial->slug}}" aria-expanded="true"
+                                                    aria-controls="collapse{{$tutorial->slug}}">
+                                                    {{ $tutorial->title }}
+                                                </button>
+                                            </h5>
+                                        </div>
+
+                                        <div id="collapse{{$tutorial->slug}}" class="collapse"
+                                            aria-labelledby="heading{{$tutorial->slug}}" data-parent="#accordion">
+                                            <div class="card-body">
+                                                <div class="row pt-3 pb-3">
+                                                    <div class="col-sm-6 mb-4">
+                                                        <div class="framewrap">
+                                                            {!! $tutorial->iframe !!}
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 mb-4">
+                                                        <div class="description-tutorial-wrap">
+                                                            <h5>Описание Туториала, заметки и тп</h5>
+                                                        </div>
+                                                        <div class="p-3">
+                                                            {{ $tutorial->description }}
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    @endforeach
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endif
                 </section>
                 <!-- /.content -->
             </div>

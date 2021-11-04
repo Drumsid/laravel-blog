@@ -10,7 +10,8 @@
     @if ($_SERVER['REQUEST_URI'] == '/admin/category' || $_SERVER['REQUEST_URI'] == '/admin/tag' ||
           $_SERVER['REQUEST_URI'] == '/admin/post' || $_SERVER['REQUEST_URI'] == '/admin/vocal' ||
           $_SERVER['REQUEST_URI'] == '/admin/song' || $_SERVER['REQUEST_URI'] == '/admin/pending/song' ||
-          $_SERVER['REQUEST_URI'] == '/admin/user' || $_SERVER['REQUEST_URI'] == '/admin/originalsong')
+          $_SERVER['REQUEST_URI'] == '/admin/user' || $_SERVER['REQUEST_URI'] == '/admin/originalsong' ||
+          $_SERVER['REQUEST_URI'] == '/admin/tutorial')
     <!-- DataTables -->
     <link rel="stylesheet" href="{{ asset('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
@@ -75,9 +76,10 @@
     @include('admin.includes.mainscripts')
 
     @if ($_SERVER['REQUEST_URI'] == '/admin/category' || $_SERVER['REQUEST_URI'] == '/admin/tag' ||
-    $_SERVER['REQUEST_URI'] == '/admin/post' || $_SERVER['REQUEST_URI'] == '/admin/vocal' ||
-    $_SERVER['REQUEST_URI'] == '/admin/song' || $_SERVER['REQUEST_URI'] == '/admin/pending/song' ||
-    $_SERVER['REQUEST_URI'] == '/admin/user' || $_SERVER['REQUEST_URI'] == '/admin/originalsong')
+        $_SERVER['REQUEST_URI'] == '/admin/post' || $_SERVER['REQUEST_URI'] == '/admin/vocal' ||
+        $_SERVER['REQUEST_URI'] == '/admin/song' || $_SERVER['REQUEST_URI'] == '/admin/pending/song' ||
+        $_SERVER['REQUEST_URI'] == '/admin/user' || $_SERVER['REQUEST_URI'] == '/admin/originalsong' ||
+        $_SERVER['REQUEST_URI'] == '/admin/tutorial')
     <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
@@ -170,6 +172,17 @@
         });
         $(document).ready(function () {
             $('#originalsong-table').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+        $(document).ready(function () {
+            $('#tutorial-table').DataTable({
                 "paging": true,
                 "lengthChange": false,
                 "searching": true,

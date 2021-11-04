@@ -109,21 +109,6 @@
                                         class="form-control @error('form') is-invalid @enderror" id="exampleInputCat3"
                                         placeholder="Введите форму песни"></textarea>
                                 </div>
-                                <!-- <div class="form-group">
-                      <label for="songCreate">Оригинал песни</label>
-                      <input type="text" name="original_song"
-                            class="form-control @error('original_song') is-invalid @enderror"
-                            id="songCreate"
-                            placeholder="Введите размер песни"
-                            value="{{ old('original_song') }}">
-                  </div> -->
-                                <!-- <div class="form-group">
-                                    <label for="exampleInputCat3">Комментарии к песне</label>
-                                    <textarea name="description" rows="5"
-                                        class="form-control @error('description') is-invalid @enderror"
-                                        id="exampleInputCat3"
-                                        placeholder="Введите описание песни">{{ old('description') }}</textarea>
-                                </div> -->
 
                             </div>
                             <!-- /.card-body -->

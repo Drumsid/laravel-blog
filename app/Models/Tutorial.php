@@ -7,26 +7,22 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
-class Song extends Model
+class Tutorial extends Model
 {
     use HasFactory, HasSlug;
 
     protected $fillable = [
         'title',
-        'text',
-        'tonica',
+        'link',
+        'iframe',
+        'thumbnail',
         'description',
-        'dpm',
-        'size',
-        'form',
-        'original_song',
-        'is_approved',
-        'user_name',
+        'song_id',
     ];
 
-    public function vocals()
+    public function song()
     {
-        return $this->hasMany(Vocal::class);
+        return $this->belongsTo(Song::class);
     }
 
     public function getSlugOptions() : SlugOptions
@@ -39,15 +35,5 @@ class Song extends Model
     public function getRouteKeyName()
     {
         return 'slug';
-    }
-
-    public function originalSong()
-    {
-        return $this->hasOne(OriginalSong::class);
-    }
-
-    public function tutorials()
-    {
-        return $this->hasMany(Tutorial::class);
     }
 }

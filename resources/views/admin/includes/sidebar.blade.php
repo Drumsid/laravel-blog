@@ -175,6 +175,30 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item nav-opening">
+                    <a href="#" class="nav-link nav-isactive">
+                    <i class="nav-icon fas fa-book"></i>
+                        <p>
+                            Туториалы
+                            <i class="right fas fa-angle-left"></i>
+                            <span class="badge badge-info right">{{ $tutorialCount }}</span>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview" style="display: none;">
+                        <li class="nav-item">
+                            <a href="{{ route('tutorial.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Список туториалов</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('tutorial.create') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Добавить туториал</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 @role('admin')
                 <li class="nav-item nav-opening">
                     <a href="#" class="nav-link nav-isactive">

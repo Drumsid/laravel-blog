@@ -86,7 +86,7 @@
                                 <h3 class="card-title">Оригинал песни</h3>
                             </div>
                             <div class="vocal-wrapp">
-                                
+
                                 @if ($song->originalSong)
                                 <p>{{ $song->originalSong->title }}</p>
                                 <audio controls="controls"
@@ -94,7 +94,7 @@
                                 @else
                                 <p>Пока оригинала песни нет</p>
                                 @endif
-                                
+
                             </div>
 
 
@@ -144,6 +144,55 @@
                 </div>
                 <!-- /.row -->
             </div><!-- /.container-fluid -->
+            @if ($song->tutorials->count())
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h2>Туториалы</h2>
+                        <div id="accordion">
+                        @foreach ($song->tutorials as $tutorial)
+
+                            <div class="card">
+                                <div class="card-header" id="heading{{$tutorial->slug}}">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-dark" data-toggle="collapse"
+                                            data-target="#collapse{{$tutorial->slug}}" aria-expanded="true"
+                                            aria-controls="collapse{{$tutorial->slug}}">
+                                            {{ $tutorial->title }}
+                                        </button>
+                                    </h5>
+                                </div>
+
+                                <div id="collapse{{$tutorial->slug}}" class="collapse"
+                                    aria-labelledby="heading{{$tutorial->slug}}" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="framewrap">
+                                                    {!! $tutorial->iframe !!}
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="description-tutorial-wrap">
+                                                    <h3>Описание Туториала, заметки и тп</h3>
+                                                </div>
+                                                <div class="p-3">
+                                                    {{ $tutorial->description }}
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        @endforeach
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endif
         </section>
         <!-- /.content -->
     </div>

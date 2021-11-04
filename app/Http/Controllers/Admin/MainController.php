@@ -8,6 +8,7 @@ use App\Models\Vocal;
 use App\Models\Song;
 use App\Models\OriginalSong;
 use App\Models\User;
+use App\Models\Tutorial;
 
 class MainController extends Controller
 {
@@ -17,6 +18,7 @@ class MainController extends Controller
         $songCount = Song::all()->count();
         $originalSongCount = OriginalSong::all()->count();
         $userCount = User::all()->count();
-        return view('admin.index', compact('vocalCount', 'songCount', 'originalSongCount', 'userCount'));
+        $tutorialCount = Tutorial::all()->count();
+        return view('admin.index', compact('vocalCount', 'songCount', 'originalSongCount', 'userCount', 'tutorialCount'));
     }
 }

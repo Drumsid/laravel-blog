@@ -6,23 +6,20 @@ use Illuminate\Http\Request;
 use App\Models\Song;
 use App\Models\Vocal;
 use App\Models\OriginalSong;
+use App\Models\Tutorial;
 
 class TestController extends Controller
 {
-    public function getSongs()
+    public function getTest()
     {
-        $categories = OriginalSong::with('song')->get();
-        $song = OriginalSong::findOrFail(1);
-        return $categories;
-        return $song->song;
+        $tutorials = Tutorial::with('song')->get();
+        return $tutorials;
     }
 
-    public function getVocals()
+    public function getSong()
     {
-        $posts = Vocal::with('song')->get();
-        $post = Vocal::with('song')->findOrFail(5);
-        // return $posts;
-        return $post;
+        $songs = Song::with('tutorials')->get();
+        return $songs;
     }
 
     public function getPostsTags()

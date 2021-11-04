@@ -56,13 +56,12 @@
                                         <tr>
                                             <th>№</th>
                                             <th>Название песни</th>
-                                            <th>Текст</th>
                                             <th>Тональность</th>
                                             <th>dpm</th>
                                             <th>Размер</th>
-                                            <th>Форма</th>
                                             <th>Партии</th>
                                             <th>Оригинал песни</th>
+                                            <th>Туториал</th>
                                             <th>Добавил</th>
                                             <th>Aprooved</th>
                                             <th>Actions</th>
@@ -73,15 +72,24 @@
                                         <tr>
                                             <td>{{$key + 1}}</td>
                                             <td>{{$song->title}}</td>
-                                            <td>{{Str::limit($song->text, 20)}}</td>
                                             <td>{{$song->tonica}}</td>
                                             <td>{{$song->dpm}}</td>
                                             <td>{{$song->size}}</td>
-                                            <td>{{Str::limit($song->form, 20)}}</td>
                                             <td>{{$song->vocals->pluck('title')->join(', ')}}</td>
                                             <td>
                                                 @if ($song->originalSong)
                                                 {{$song->originalSong->title}}
+                                                @endif
+                                            </td>
+                                            <td class="text-center">
+                                                @if ($song->tutorials->count())
+                                                <div class="text-success">
+                                                    <i class="fas fa-check-square"></i>
+                                                </div>
+                                                @else
+                                                <div class="text-danger">
+                                                <i class="fas fa-times-circle"></i>
+                                                </div>
                                                 @endif
                                             </td>
                                             <td>
@@ -121,7 +129,9 @@
                                             </td>
                                         </tr>
                                         @empty
-                                        <p>No songs</p>
+                                        <tr>
+                                            <td>No songs</td>
+                                        </tr>
                                         @endforelse
 
                                     </tbody>
@@ -129,13 +139,12 @@
                                         <tr>
                                             <th>№</th>
                                             <th>Название песни</th>
-                                            <th>Текст</th>
                                             <th>Тональность</th>
                                             <th>dpm</th>
                                             <th>Размер</th>
-                                            <th>Форма</th>
                                             <th>Партии</th>
                                             <th>Оригинал песни</th>
+                                            <th>Туториал</th>
                                             <th>Добавил</th>
                                             <th>Aprooved</th>
                                             <th>Actions</th>
