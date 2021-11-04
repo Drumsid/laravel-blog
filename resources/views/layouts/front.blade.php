@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="yandex-verification" content="baaee974cc962430" />
+    <link rel="icon" href="{{ asset('front/images/home/favicon-32x32.png') }}" type="image/x-icon">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('front/css/bootstrap.min.css') }}">
