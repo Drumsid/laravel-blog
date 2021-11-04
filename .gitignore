@@ -15,4 +15,4 @@ yarn-error.log
 /.idea
 /.vscode
 .htaccess
-sitemap.xml
+/public/sitemap.xml
