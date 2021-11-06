@@ -4,11 +4,7 @@
 <link rel="stylesheet" href="{{ asset('transpose/jquery.transposer.css') }}">
 @endsection
 @section('content')
-<div class="container-fluid">
-    <div class="container">
-        <div class="wrapper mt-70">
-
-            <style>
+<style>
                 .vocal-wrapp {
                     padding: 20px;
                 }
@@ -49,9 +45,21 @@
                     width: 100%;
                     height: 100%;
                 }
-
+                #mobile-el {
+                        display: none !important;
+                    }
+                @media (min-width: 300px) and (max-width: 500px) {
+                    #mobile-el {
+                        display: flex !important;
+                    }
+                }
             </style>
-
+<div class="container-fluid">
+    <div class="container">
+        <div class="d-flex justify-content-end" id="mobile-el">
+            <a href="{{ route('allSongs') }}" class="btn btn-outline-primary mt-3">Список песен</a>
+        </div>
+        <div class="wrapper mt-100">
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
 

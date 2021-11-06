@@ -16,22 +16,34 @@
     .english-p {
         clear: both;
     }
+
     .songs-abc-wrap {
         margin: 30px 0 0 0;
         padding: 10px 0 0 0;
     }
+
     .songs-content {
         margin-top: 40px;
     }
+
     #songsList {
         list-style: none;
-        padding: 0;
+        padding: 15px;
         margin: 30px 0 0 0;
     }
+
     #songsList li {
         margin: 15px 0;
         font-size: 18px;
+        /* position: relative; */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
     }
+    .ln-no-match {
+        display: block !important;
+    }
+
     #songsList-nav {
         border: 1px solid silver;
         border-radius: 10px;
@@ -45,19 +57,33 @@
 <div class="container-fluid">
     <div class="container">
         <div class="songs-abc-wrap">
-        <h3>Выбор песен по алфавиту</h3>
-        <p>Общее количество песен: <b>{{ $songCount }}</b></p>
-        <div class="songs-content">
-            <ul id="songsList">
-                @forelse ($songs as $song)
-                <a href="{{ route('showSong', $song) }}">
-                    <li>{{ $song->title }}</li>
-                </a>
-                @empty
-                no song
-                @endforelse
-            </ul>
-        </div>
+            <h3>Выбор песен по алфавиту</h3>
+            <p>Общее количество песен: <b>{{ $songCount }}</b></p>
+            <div class="songs-content">
+                <ul id="songsList">
+                    @forelse ($songs as $song)
+
+                    <li>
+                        <a href="{{ route('showSong', $song) }}">
+                            <span>{{ $song->title }}</span>
+                        </a>
+                        <span>
+                            @if ($song->dpm)
+                            <span class="song-dpm">dpm: <b>{{ $song->dpm }}</b></span>
+                            @endif
+                            @if ($song->tonica)
+                            <span class="song-ton ml-2">ton: <b>{{ $song->tonica }}</b></span>
+                            @endif
+                        </span>
+
+
+                    </li>
+
+                    @empty
+                    no song
+                    @endforelse
+                </ul>
+            </div>
         </div>
     </div>
 </div>
@@ -71,7 +97,7 @@
         $('#songsList').listnav({
             includeOther: true,
             initLetter: 'а',
-            allText: 'Все', 
+            allText: 'Все',
             letters: ['_', 'а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'к', 'л', 'м', 'н', 'о',
                 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'э', 'ю', 'я', 'a', 'b', 'c',
                 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
