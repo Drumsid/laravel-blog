@@ -67,7 +67,7 @@
                 <section class="content">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-md-8">
+                            <div class="col-lg-8">
                                 <div class="card">
                                     <div class="card-header p-2 bg-white text-dark">
                                         <h2>{{ $song->title }}</h2>
@@ -79,7 +79,7 @@
                                 <!-- /.card -->
                             </div>
                             <!-- /.col -->
-                            <div class="col-md-4">
+                            <div class="col-lg-4">
                                 <div class="card card-primary ">
                                     <div class="card-header bg-primary text-white">
                                         <h4 class="card-title">Оригинал песни</h4>
